@@ -1,0 +1,179 @@
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Giữ trái tim không làm hiện thanh cuộn */
+}
+
+.container {
+    z-index: 10;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 77, 109, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border: 2px solid #ff85a1;
+}
+
+.title {
+    color: #ff4d6d;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #ff85a1;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.flower-icon {
+    font-size: 50px;
+    margin: 20px 0;
+    animation: pulse 2s infinite;
+}
+
+.description {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+button {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+    background-color: #c9184a;
+    transform: translateY(-3px);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.wish-box {
+    margin-top: 25px;
+    padding: 15px;
+    min-height: 60px;
+    color: #c9184a;
+    font-style: italic;
+    font-weight: 500;
+    border-top: 1px solid #ffb3c1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Hiệu ứng Trái tim bay */
+.heart {
+    position: fixed;
+    bottom: -10vh;
+    font-size: 1.5rem;
+    pointer-events: none;
+    z-index: 1;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Style cho trái tim theo dấu chuột */
+.mouse-heart {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 1rem;
+    pointer-events: none; /* Không làm vướng con trỏ chuột */
+    z-index: 9999;
+    animation: explode 0.8s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -150%) scale(1.5) rotate(20deg);
+        opacity: 0;
+    }
+}
+
+#bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Đẩy ra sau cùng */
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    overflow: hidden;
+}
+
+/* Hiệu ứng hạt lấp lánh */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle var(--duration) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.5); opacity: 1; }
+}
+#bg-animation {
+    /* ... các thuộc tính cũ ... */
+    will-change: transform;
+    pointer-events: none; /* Quan trọng: Để không cản trở việc click vào nút/input bên trên */
+}
+
+.wish-box {
+    border-right: 2px solid #ff4d6d; /* Tạo con trỏ */
+    white-space: normal;
+    overflow: hidden;
+    letter-spacing: 1px;
+}
+
+/* Hiệu ứng con trỏ nhấp nháy */
+.typing-cursor {
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}

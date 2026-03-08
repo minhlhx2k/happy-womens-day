@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Ngày Quốc Tế Phụ Nữ 8/3</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="bg-animation"></div>
+    <div class="container">
+        <div class="card">
+            <h1 class="title">Happy Women's Day, <span id="user-name">Bạn</span>!</h1>
+            <!-- <div class="input-group" style="margin: 15px 0;">
+                <input type="text" id="input-name" placeholder="Nhập tên người nhận..." 
+               style="padding: 10px; border-radius: 20px; border: 1px solid #ff85a1; width: 80%; outline: none;">
+            </div> -->
+            <p class="subtitle">08 - 03 - 2026</p>
+            
+            <div class="flower-icon">🌸</div>
+            
+            <p class="description">Gửi những điều ngọt ngào nhất đến một nửa thế giới tuyệt vời.</p>
+            
+            <button id="btn-wish">Nhận lời chúc ngẫu nhiên</button>
+            <button id="btn-share" style="background-color: #4CAF50; margin-top: 10px;">Chia sẻ niềm vui 🚀</button>
+            <div id="wish-display" class="wish-box"></div>
+            <div id="qrcode-container" style="margin-top: 20px; display: none;">
+                <div id="qrcode" style="display: flex; justify-content: center;"></div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bg-audio" loop>
+    <source src="assets/music/jar-of-love.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát âm thanh.
+    </audio>
+    <div id="qrcode-container" style="margin-top: 20px; display: none;">
+        <p style="font-size: 0.8rem; color: #ff4d6d; margin-bottom: 10px;">Quét mã để chia sẻ thiệp này!</p>
+        <div id="qrcode" style="display: flex; justify-content: center;"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
