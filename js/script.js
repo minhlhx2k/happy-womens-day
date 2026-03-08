@@ -40,7 +40,31 @@ const wishes = [
     "Chúc bạn luôn là phiên bản tuyệt vời nhất của chính mình. Happy Women's Day! ✨",
     "Gửi đến bạn những cái ôm ấm áp và lời chúc tốt đẹp nhất ngày 8/3. 🤗",
     "Hãy luôn mỉm cười nhé, vì nụ cười của bạn là điều đẹp nhất thế gian! 😊",
-    "Chúc phái đẹp ngày 8/3 nhận được thật nhiều quà và tình yêu thương! 🎁"
+    "Chúc phái đẹp ngày 8/3 nhận được thật nhiều quà và tình yêu thương! 🎁",
+
+    // --- Lời chúc ngọt ngào & lãng mạn ---
+    "Chúc thiên thần của anh có một ngày 8/3 thật hạnh phúc, rạng rỡ và tràn đầy yêu thương! ❤️",
+    "Với thế giới bạn chỉ là một người, nhưng với một người bạn là cả thế giới. Chúc mừng ngày 8/3! ✨",
+    "Em không cần phải là một nàng công chúa, vì em đã là nữ hoàng trong lòng anh rồi. Happy Women's Day! 👑",
+    "Chúc bạn luôn xinh đẹp như những đóa hoa rực rỡ nhất và ngọt ngào như những viên kẹo. 🍬",
+    "Ngày của phái đẹp, chúc bạn luôn được yêu thương, nâng niu và trân trọng mỗi ngày! 🌹",
+
+    // --- Lời chúc ý nghĩa & truyền cảm hứng ---
+    "Chúc bạn luôn mạnh mẽ như kim cương và dịu dàng như những nhành hoa xuân. 💎",
+    "Bạn là duy nhất, là đặc biệt và là một món quà tuyệt vời của thế giới này. Chúc mừng 8/3! 🌟",
+    "Đừng bao giờ quên rằng bạn có sức mạnh để thay đổi thế giới. Chúc mừng ngày Quốc tế Phụ nữ! 💪",
+    "Mong bạn luôn tự tin, kiêu hãnh và đi trên con đường hạnh phúc mà bạn đã chọn. ✨",
+    "Chúc phái đẹp luôn là những đóa hoa rạng rỡ nhất, tự tỏa hương thơm theo cách của riêng mình! 🌸",
+
+    // --- Lời chúc dành cho Mẹ & Người thân ---
+    // "Chúc Mẹ yêu của con một ngày 8/3 thật nhiều sức khỏe, luôn nở nụ cười trên môi. Con yêu Mẹ nhiều! ❤️",
+    // "Gửi đến người phụ nữ tuyệt vời nhất đời con lời chúc hạnh phúc và bình an nhất! 🌷",
+    // "Chúc bà, mẹ và chị em trong gia đình ta một ngày 8/3 ngập tràn niềm vui và quà tặng! 🎁",
+
+    // --- Lời chúc hài hước & vui vẻ ---
+    "Chúc chị em 8/3: Tay ôm nhiều hoa, giỏ đầy quà cáp, được đi ăn chơi, quên hết việc nhà! 😆",
+    "Chúc các bạn nữ hôm nay 'vùng lên' thành công, tiền đầy túi, tình đầy tim nhé! 🚀",
+    "Mùng 8/3 chúc chị em trẻ trung như heo sữa, bốc lửa như heo quay và hăng say như heo con! 🐷"
 ];
 
 // 2. Xử lý sự kiện nhấn nút lấy lời chúc
