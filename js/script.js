@@ -293,3 +293,21 @@ btnWish.addEventListener('click', () => {
     }
     if (audio) audio.play();
 });
+
+
+// Hiệu ứng khi chạm tay trên điện thoại
+document.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    const heart = document.createElement('span');
+    heart.classList.add('mouse-heart');
+    heart.innerText = '❤️';
+    
+    heart.style.left = touch.clientX + 'px';
+    heart.style.top = touch.clientY + 'px';
+    
+    document.body.appendChild(heart);
+    
+    setTimeout(() => {
+        heart.remove();
+    }, 800);
+});
