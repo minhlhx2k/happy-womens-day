@@ -1,3 +1,12 @@
+:root {
+    --primary-color: #ff85a1;
+    --primary-dark: #c9184a;
+    --bg-gradient-start: #fce4ec;
+    --bg-gradient-end: #f8bbd0;
+    --text-main: #444;
+    --card-bg: rgba(255, 255, 255, 0.95);
+}
+
 /* Reset cơ bản */
 * {
     margin: 0;
@@ -6,8 +15,8 @@
 }
 
 body {
-    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    font-family: 'Quicksand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -31,9 +40,11 @@ body {
 }
 
 .title {
-    color: #ff4d6d;
-    font-size: 2rem;
+    color: var(--primary-dark);
+    font-size: 2.2rem;
     margin-bottom: 5px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
 }
 
 .subtitle {
@@ -56,7 +67,7 @@ body {
 }
 
 button {
-    background-color: #ff4d6d;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 12px 25px;
@@ -64,16 +75,46 @@ button {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: transform 0.2s, background 0.3s;
+    transition: all 0.3s ease;
+    font-family: 'Quicksand', sans-serif;
 }
 
 button:hover {
-    background-color: #c9184a;
+    background-color: var(--primary-dark);
     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(201, 24, 74, 0.3);
 }
 
 button:active {
     transform: scale(0.95);
+}
+
+.secondary-btn {
+    background-color: #4CAF50;
+}
+
+.secondary-btn:hover {
+    background-color: #45a049;
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.icon-btn {
+    padding: 12px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #fff;
+    color: var(--primary-dark);
+    border: 2px solid var(--primary-color);
+}
+
+.icon-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 .wish-box {

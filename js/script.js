@@ -67,51 +67,26 @@ const wishes = [
     "Mùng 8/3 chúc chị em trẻ trung như heo sữa, bốc lửa như heo quay và hăng say như heo con! 🐷"
 ];
 
-// 2. Xử lý sự kiện nhấn nút lấy lời chúc
+// 2. Các biến DOM
 const btnWish = document.getElementById('btn-wish');
 const wishDisplay = document.getElementById('wish-display');
 const audio = document.getElementById('bg-audio'); // Lấy thẻ audio
+const btnMusic = document.getElementById('btn-music'); // Nút bật/tắt nhạc
 
-btnWish.addEventListener('click', () => {
-    // 1. Hiện lời chúc (giữ nguyên code cũ)
-    const randomIndex = Math.floor(Math.random() * wishes.length);
-    wishDisplay.style.opacity = 0;
-    setTimeout(() => {
-        wishDisplay.innerText = wishes[randomIndex];
-        wishDisplay.style.opacity = 1;
-    }, 200);
-
-    // 2. Bắn pháo hoa bằng icon hoa và tim
-    const scalar = 2;
-    const flower = confetti.shapeFromText({ text: '🌸', scalar });
-    const rose = confetti.shapeFromText({ text: '🌹', scalar });
-    const heart = confetti.shapeFromText({ text: '❤️', scalar });
-
-    confetti({
-        shapes: [flower, rose, heart],
-        particleCount: 40,
-        spread: 70,
-        origin: { y: 0.6 }, // Bắn lên từ vị trí nút bấm
-        colors: ['#ff4d6d', '#ff85a1', '#ffb3c1']
-    });
-
-    // 3. Phát nhạc (giữ nguyên code cũ)
+// Xử lý bật/tắt nhạc
+let isMusicPlaying = false;
+btnMusic.addEventListener('click', () => {
     if (audio.paused) {
-        audio.play();
-    }
-    // Xử lý nhạc chuyên nghiệp hơn
-    if (audio) {
         audio.play().then(() => {
-            console.log("Nhạc đang phát thành công!");
-        }).catch(error => {
-            console.error("Lỗi phát nhạc:", error);
-            alert("Không thể phát nhạc. Hãy kiểm tra đường dẫn file hoặc cài đặt trình duyệt!");
-        });
+            isMusicPlaying = true;
+            btnMusic.innerText = '⏸️';
+        }).catch(err => console.log(err));
+    } else {
+        audio.pause();
+        isMusicPlaying = false;
+        btnMusic.innerText = '🔊';
     }
-    generateQRCode();
-}
-// ,{ once: true }
-);
+});
 // 3. Hàm tạo hiệu ứng trái tim bay
 function createHeart() {
     const heart = document.createElement('div');
@@ -187,43 +162,43 @@ function generateQRCode() {
     });
 }
 
-// const inputName = document.getElementById('input-name');
-// const userNameSpan = document.getElementById('user-name');
-// const qrElement = document.getElementById('qrcode');
-// const qrContainer = document.getElementById('qrcode-container');
+const inputName = document.getElementById('input-name');
+const userNameSpan = document.getElementById('user-name');
+const qrElement = document.getElementById('qrcode');
+const qrContainer = document.getElementById('qrcode-container');
 
-// // Hàm cập nhật QR tự động
-// function updateAutoQR(nameValue) {
-//     // 1. Cập nhật URL trên thanh địa chỉ mà không load lại trang
-//     const newUrl = new URL(window.location.href);
-//     newUrl.searchParams.set('name', nameValue);
-//     window.history.pushState({}, '', newUrl);
+// Hàm cập nhật QR tự động
+function updateAutoQR(nameValue) {
+    // 1. Cập nhật URL trên thanh địa chỉ mà không load lại trang
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.set('name', nameValue);
+    window.history.pushState({}, '', newUrl);
 
-//     // 2. Hiển thị container và xóa QR cũ
-//     qrContainer.style.display = "block";
-//     qrElement.innerHTML = "";
+    // 2. Hiển thị container và xóa QR cũ
+    qrContainer.style.display = "block";
+    qrElement.innerHTML = "";
 
-//     // 3. Tạo QR mới theo URL đã cập nhật
-//     new QRCode(qrElement, {
-//         text: newUrl.href,
-//         width: 120,
-//         height: 120,
-//         colorDark : "#ff4d6d",
-//         colorLight : "#ffffff"
-//     });
-// }
+    // 3. Tạo QR mới theo URL đã cập nhật
+    new QRCode(qrElement, {
+        text: newUrl.href,
+        width: 120,
+        height: 120,
+        colorDark : "#ff4d6d",
+        colorLight : "#ffffff"
+    });
+}
 
-// // Lắng nghe sự kiện gõ tên
-// inputName.addEventListener('input', (e) => {
-//     const value = e.target.value || "Bạn";
-//     userNameSpan.innerText = value; // Đổi tên hiển thị trên h1 ngay lập tức
+// Lắng nghe sự kiện gõ tên
+inputName.addEventListener('input', (e) => {
+    const value = e.target.value || "Bạn";
+    userNameSpan.innerText = value; // Đổi tên hiển thị trên h1 ngay lập tức
     
-//     // Cập nhật QR tự động (Debounce nhẹ để tránh tạo quá nhiều QR khi gõ nhanh)
-//     clearTimeout(window.qrTimer);
-//     window.qrTimer = setTimeout(() => {
-//         updateAutoQR(value);
-//     }, 500); // Đợi 500ms sau khi ngừng gõ mới tạo QR
-// });
+    // Cập nhật QR tự động (Debounce nhẹ để tránh tạo quá nhiều QR khi gõ nhanh)
+    clearTimeout(window.qrTimer);
+    window.qrTimer = setTimeout(() => {
+        updateAutoQR(value);
+    }, 500); // Đợi 500ms sau khi ngừng gõ mới tạo QR
+});
 
 function createBackgroundStars() {
     const bg = document.getElementById('bg-animation');
@@ -289,9 +264,29 @@ btnWish.addEventListener('click', () => {
 
     // Các hiệu ứng khác (Pháo hoa, nhạc...) giữ nguyên như cũ
     if (typeof confetti === 'function') {
-        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+        const scalar = 2;
+        const flower = confetti.shapeFromText({ text: '🌸', scalar });
+        const rose = confetti.shapeFromText({ text: '🌹', scalar });
+        const heart = confetti.shapeFromText({ text: '❤️', scalar });
+
+        confetti({
+            shapes: [flower, rose, heart],
+            particleCount: 40,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#ff4d6d', '#ff85a1', '#ffb3c1']
+        });
     }
-    if (audio) audio.play();
+    
+    // Phát nhạc nếu người dùng chưa chủ động tắt
+    if (audio && audio.paused && !isMusicPlaying) {
+        audio.play().then(() => {
+            isMusicPlaying = true;
+            btnMusic.innerText = '⏸️';
+        }).catch(e => console.log("Cần tương tác người dùng để phát nhạc"));
+    }
+    
+    generateQRCode();
 });
 
 
